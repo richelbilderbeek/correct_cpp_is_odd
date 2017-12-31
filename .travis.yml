@@ -1,0 +1,67 @@
+language: cpp
+compiler: gcc
+dist: trusty
+
+# Boost
+addons: 
+  apt: 
+    packages: libboost-all-dev
+
+before_install:
+  # C++14
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update -qq
+  # Codecov
+  - sudo pip install codecov
+  # OCLint
+  - ./install_oclint
+
+install: 
+  # C++14
+  - sudo apt-get install -qq g++-5
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90
+  # Codecov
+  - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 90
+  # cppcheck
+  - sudo apt-get install -qq cppcheck
+  # valgrind, for helgrind and memcheck
+  - sudo apt-get install -qq valgrind
+  # SLOCcount
+  - sudo apt-get install sloccount
+  # proselint
+  - sudo pip install proselint
+
+script: 
+  # Debug mode
+  - qmake is_odd.pro
+  - make debug
+  - ./is_odd
+  # helgrind
+  - valgrind --tool=helgrind --log-file=helgrind.log -v ./is_odd
+  - cat helgrind.log
+  # memcheck
+  - valgrind --leak-check=full -v --show-reachable=yes --log-file=memcheck.log ./is_odd
+  - cat memcheck.log
+  # Build and run and profile normal program
+  - qmake is_odd.pro
+  - make release
+  - time ./is_odd
+  - gprof is_odd > gprof.log
+  - head gprof.log -n 1000
+  # Get code coverage
+  - ./get_code_cov
+  - codecov
+  # cppcheck
+  - cppcheck --quiet --error-exitcode=1 . 
+  # Call OCLint
+  - ./do_oclint
+  # Get my folder
+  - my_github=${PWD##*/}  
+  # SLOCcount
+  - cd ..; sloccount --overhead 1 --personcost 22614 $my_github; cd $my_github
+  # proselint
+  - proselint README.md
+
+after_success:
+  # Codecov
+  - bash <(curl -s https://codecov.io/bash)

@@ -18,17 +18,17 @@ install:
   - sudo apt-get install -qq cppcheck
 
 script: 
-  - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/hello_cli/main.pro
-  - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/hello_cli/build
+  - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/is_odd/main.pro
+  - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/is_odd/build
   - chmod +x build
   - ./build
-  - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/hello_cli/test
+  - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/is_odd/test
   - chmod +x test
   - ./test
   # cppcheck
   - cppcheck --quiet --error-exitcode=1 . 
   # OCLint
-  - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/hello_cli/do_oclint
+  - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/is_odd/do_oclint
   - chmod +x do_oclint
   - ./do_oclint
 

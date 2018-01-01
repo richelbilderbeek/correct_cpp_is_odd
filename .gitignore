@@ -1,1 +1,10 @@
 *.pro.user
+release/
+debug/
+Makefile
+Makefile.Debug
+Makefile.Release
+main
+created_*.txt
+expected_*.txt
+gmon.out

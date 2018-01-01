@@ -8,3 +8,4 @@ main
 created_*.txt
 expected_*.txt
 gmon.out
+main.pro

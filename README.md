@@ -6,6 +6,11 @@
 
  * Respond to exceptions
 
+## Prerequisites
+
+ * Understand [how this course works](https://github.com/richelbilderbeek/correct_cpp/blob/master/how_this_course_works.md)
+ * Have written [a correct CLI program](https://github.com/richelbilderbeek/correct_cpp_hello_cli)
+
 ## Exercise
 
 Write a command-line interface (CLI) program that determines if its argument is an odd number.
@@ -37,9 +42,6 @@ main(argc, argv)
     * when the std::string is a number too big to be an integer, like `12345678901234567890`
  * Use [try](https://github.com/richelbilderbeek/cpp/blob/master/content/CppTry.md) and [catch](https://github.com/richelbilderbeek/cpp/blob/master/content/CppCatch.md) to respond to the [exception](https://github.com/richelbilderbeek/cpp/blob/master/content/CppException.md) [thrown](https://github.com/richelbilderbeek/cpp/blob/master/content/CppThrow.md) by [std::stoi](https://github.com/richelbilderbeek/cpp/blob/master/content/CppStdStoi.md)
  * Don't cut corners by using ellipsis (`...`)
-
-## Advice
-
  * Avoid [std::endl](https://github.com/richelbilderbeek/cpp/blob/master/content/CppStdEndl.md) [1]
  * [catch](https://github.com/richelbilderbeek/cpp/blob/master/content/CppCatch.md) the [exception](https://github.com/richelbilderbeek/cpp/blob/master/content/CppException.md) by [reference](https://github.com/richelbilderbeek/cpp/blob/master/content/CppReference.md) [3]
  * Use [const](https://github.com/richelbilderbeek/cpp/blob/master/content/CppConst.md) to define objects with values that do not change after construction [4]

@@ -13,8 +13,8 @@ int main(int argc, char** argv)
   {
     if(argc != 1)
     {
-      int number = std::stoi(argv[1]);
-      int modulo = number % 2;
+      const int number = std::stoi(argv[1]);
+      const int modulo = number % 2;
       if(modulo == 1)
       {
         std::cout << "true\n";

@@ -5,6 +5,8 @@ before_install:
   # C++17
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get update -qq
+  # Codecov
+  - sudo pip install codecov
   # OCLint
   - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/install_oclint
   - chmod +x install_oclint 
@@ -14,21 +16,27 @@ install:
   # C++17
   - sudo apt-get install -qq g++-7
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
+  # Codecov
+  - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-7 90
   # cppcheck
   - sudo apt-get install -qq cppcheck
 
 script: 
-  - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/is_odd/main.pro
-  - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/is_odd/build
-  - chmod +x build
-  - ./build
-  - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/is_odd/test
-  - chmod +x test
-  - ./test
   # cppcheck
   - cppcheck --quiet --error-exitcode=1 . 
   # OCLint
   - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/is_odd/do_oclint
   - chmod +x do_oclint
   - ./do_oclint
+  # Build, run and test the release version
+  - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/is_odd/main.pro
+  - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/is_odd/test
+  - chmod +x test
+  - ./test
 
+after_script:
+  # Get code coverage badge
+  - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/is_odd/get_code_cov
+  - chmod +x get_code_cov
+  - ./get_code_cov
+  - codecov

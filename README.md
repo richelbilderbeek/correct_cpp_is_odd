@@ -50,6 +50,10 @@ main(argc, argv)
  * [catch](https://github.com/richelbilderbeek/cpp/blob/master/content/CppCatch.md) the [exception](https://github.com/richelbilderbeek/cpp/blob/master/content/CppException.md) by [reference](https://github.com/richelbilderbeek/cpp/blob/master/content/CppReference.md) [3]
  * Use [const](https://github.com/richelbilderbeek/cpp/blob/master/content/CppConst.md) to define objects with values that do not change after construction [4]
 
+## External links
+
+ * [Download the Qt Creator file `main.pro`](https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/shared/main.pro)
+
 ## References
 
  * [1] [C++ Core Guidelines: SL.io.50: Avoid endl](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rio-endl)

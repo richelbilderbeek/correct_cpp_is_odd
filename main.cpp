@@ -12,18 +12,16 @@ int main(int argc, char** argv)
   }
   try
   {
-    if(argc != 1)
+    assert(argc != 1);
+    const int number = std::stoi(argv[1]);
+    const int modulo = number % 2;
+    if(modulo == 1)
     {
-      const int number = std::stoi(argv[1]);
-      const int modulo = number % 2;
-      if(modulo == 1)
-      {
-        std::cout << "true\n";
-      }
-      if(modulo == 0)
-      {
-        std::cout << "false\n";
-      }
+      std::cout << "true\n";
+    }
+    if(modulo == 0)
+    {
+      std::cout << "false\n";
     }
   }
   catch(const std::out_of_range&)

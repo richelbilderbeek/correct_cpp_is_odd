@@ -21,7 +21,7 @@ Write a command-line interface (CLI) program that determines if its argument is 
 
 If there are more arguments supplied, ignore the ones beyond the first
 
-Call to `hello_cli`|Output|Exit status
+Call to `is_odd`|Output|Exit status
 ---|---|---
 `./is_odd`|Any|1
 `./is_odd 1`|`true` (with newline)|0
@@ -29,6 +29,11 @@ Call to `hello_cli`|Output|Exit status
 `./is_odd nonsense`|Any|1
 `./is_odd 12345678901234567890`|Any|1
 `./is_odd 2 1`|`false` (with newline)|0
+
+With 'Any' output, you can choose to:
+
+ * inform the user, for example: 'Error: must supply one argument'
+ * give no ouput at all: the exit status of 1 indicates that the program ended with an error
 
 This is the code you start with:
 
@@ -45,9 +50,9 @@ main(argc, argv)
     * when the std::string is a word, like `nonsense`
     * when the std::string is a number too big to be an integer, like `12345678901234567890`
  * Use [try](https://github.com/richelbilderbeek/cpp/blob/master/content/CppTry.md) and [catch](https://github.com/richelbilderbeek/cpp/blob/master/content/CppCatch.md) to respond to the [exception](https://github.com/richelbilderbeek/cpp/blob/master/content/CppException.md) [thrown](https://github.com/richelbilderbeek/cpp/blob/master/content/CppThrow.md) by [std::stoi](https://github.com/richelbilderbeek/cpp/blob/master/content/CppStdStoi.md)
- * Don't cut corners by using ellipsis (`...`)
  * Avoid [std::endl](https://github.com/richelbilderbeek/cpp/blob/master/content/CppStdEndl.md) [1]
  * [catch](https://github.com/richelbilderbeek/cpp/blob/master/content/CppCatch.md) the [exception](https://github.com/richelbilderbeek/cpp/blob/master/content/CppException.md) by [reference](https://github.com/richelbilderbeek/cpp/blob/master/content/CppReference.md) [3]
+ * You can have multiple [catch](https://github.com/richelbilderbeek/cpp/blob/master/content/CppCatch.md) clauses per [try](https://github.com/richelbilderbeek/cpp/blob/master/content/CppTry.md)
  * Use [const](https://github.com/richelbilderbeek/cpp/blob/master/content/CppConst.md) to define objects with values that do not change after construction [4]
 
 ## External links

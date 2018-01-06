@@ -13,7 +13,7 @@ master|[![Build Status](https://travis-ci.org/richelbilderbeek/correct_cpp_is_od
 ## Prerequisites
 
  * Understand [how this course works](https://github.com/richelbilderbeek/correct_cpp/blob/master/how_this_course_works.md)
- * Have written [a correct CLI program](https://github.com/richelbilderbeek/correct_cpp_is_odd_cli)
+ * Have written [a correct 'Show CLI arguments' program](https://github.com/richelbilderbeek/correct_cpp_show_args)
 
 ## Exercise
 
@@ -44,7 +44,6 @@ main(argc, argv)
 }
 ```
 
- * Use the form of [main](https://github.com/richelbilderbeek/cpp/blob/master/content/CppMain.md) that gives access to command-line arguments
  * Use [std::stoi](https://github.com/richelbilderbeek/cpp/blob/master/content/CppStdStoi.md) to convert a [std::string](https://github.com/richelbilderbeek/cpp/blob/master/content/CppStdString.md) to an [int](https://github.com/richelbilderbeek/cpp/blob/master/content/CppInt.md)
  * [std::stoi](https://github.com/richelbilderbeek/cpp/blob/master/content/CppStdStoi.md) properly [2] [throws](https://github.com/richelbilderbeek/cpp/blob/master/content/CppThrow.md) an [exception](https://github.com/richelbilderbeek/cpp/blob/master/content/CppException.md) if the [std::string](https://github.com/richelbilderbeek/cpp/blob/master/content/CppStdString.md) cannot be converted to an [integer](https://github.com/richelbilderbeek/cpp/blob/master/content/CppInt.md):
     * when the std::string is a word, like `nonsense`

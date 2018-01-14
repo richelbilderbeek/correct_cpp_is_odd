@@ -57,6 +57,7 @@ main(argc, argv)
 ## External links
 
  * [Download the Qt Creator file `main.pro`](https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/shared/main.pro)
+ * [Video how to do this chapter (mp4)](http://www.richelbilderbeek.nl/correct_cpp_is_odd.mp4)
 
 ## References
 
